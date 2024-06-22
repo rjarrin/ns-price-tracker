@@ -1,0 +1,47 @@
+@font-face {
+    font-family: MyFont;
+    src: url('../assets/Rubik.ttf');
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    font-family: MyFont;
+    width: 100vw;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+.logo-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.website-title {
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: auto;
+}
+
+.subtitle {
+    margin-top: auto;
+    font-size: 0.8rem;
+}
+
+.theme-toggle-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: auto;
+}
