@@ -13,7 +13,7 @@ const Header = ({ toggleTheme }) => {
                 <p className='subtitle'>Nintendo Switch Price Tracker</p>
             </div>
             <button onClick={toggleTheme} className='theme-toggle-button'>
-                <img src={tempLogo} alt="Toggle Theme" />
+                <img src={themeIcon} alt="Toggle Theme" />
             </button>
         </header>
     );
