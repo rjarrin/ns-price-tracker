@@ -4,7 +4,7 @@ const GameCard = ({ game, gameImage }) => {
     // OnClick functionality
     // TODO: OnClick, add the item to the cart
     const handleClick = () => {
-        console.log('Button hit');
+        console.log(`${game.title} selected`);
     }
 
     return (

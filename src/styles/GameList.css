@@ -1,0 +1,28 @@
+.game-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.nav-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.game-list {
+    display: flex;
+    overflow: hidden;
+    width: 76%;
+}
+
+.game-card {
+    flex: 0 0 auto;
+    margin: 0 10px;
+}
