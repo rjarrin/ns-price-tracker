@@ -1,0 +1,37 @@
+.game-card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.game-image-container {
+    position: relative;
+    width: 100%;
+}
+
+.game-image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.overlay-text {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #0c0c0c;
+}

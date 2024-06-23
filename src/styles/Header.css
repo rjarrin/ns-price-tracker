@@ -11,6 +11,22 @@
     width: 100vw;
 }
 
+.header-top {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    font-family: MyFont;
+    width: 100vw;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    font-family: MyFont;
+    width: 100vw;
+}
+
 .title-container {
     display: flex;
     flex-direction: column;
@@ -66,3 +82,4 @@
     filter: brightness(0) saturate(100%) invert(52%) sepia(70%) saturate(482%) hue-rotate(149deg) brightness(88%) contrast(91%);
     transition: transform 0.2s linear;
 }
+
