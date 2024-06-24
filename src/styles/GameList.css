@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 100%;
+    width: 100vw;
 }
 
 .nav-button {
@@ -14,15 +14,27 @@
     cursor: pointer;
     transform: translateY(-50%);
     z-index: 1;
+    width: 40px;
+    height: 40px;
+}
+
+.game-list-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
 .game-list {
     display: flex;
-    overflow: hidden;
-    width: 76%;
+    transition: transform 0.1s ease-in-out;
 }
 
 .game-card {
-    flex: 0 0 auto;
-    margin: 0 10px;
+    flex: 0 0 calc(80%/4);
+    box-sizing: border-box;
+    margin: 0 5px;
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
