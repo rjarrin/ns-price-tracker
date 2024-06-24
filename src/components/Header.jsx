@@ -21,14 +21,15 @@ const Header = ({ toggleTheme }) => {
                     </button>
                 </div>
                 <div className='header-bottom'>
-                    <select name="filterOption" id="filter-select" className='browse-dropdown'>
-                        <option value="">All</option>
+                    <button className='browse-button'>Browse</button>
+                    <select name="filterOption" id="filter-select" className='dropdown-menu'>
+                        {/* <option value="">All</option> */}
                         <option value="featured">Featured</option>
                         <option value="new">New Releases</option>
                         <option value="on-sale">On Sale</option>
                     </select>
                     <button className='my-cart-button'>
-                        <img src={cartIcon} alt="Cart Icon" />
+                        <img className='icon-and-text' src={cartIcon} alt="Cart Icon" />
                         My Cart
                     </button>
                     <div className='search-container'>
