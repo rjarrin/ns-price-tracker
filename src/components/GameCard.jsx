@@ -14,7 +14,7 @@ const GameCard = ({ game, gameImage }) => {
                 <div className='overlay-text'>{game.title}</div>
             </div>
             <div className='game-info'>
-                <span>${game.price.finalPrice}</span>
+                <span>${game.price?.finalPrice?? 'N/A'}</span>
                 <button onClick={handleClick}>Add to cart</button>
             </div>
         </div>

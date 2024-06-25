@@ -100,10 +100,10 @@
     position: relative;
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
     display: none;
     position: absolute;
-}
+} */
 
 .icon-and-text {
     display: flex;

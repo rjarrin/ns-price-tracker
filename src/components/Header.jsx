@@ -21,9 +21,8 @@ const Header = ({ toggleTheme }) => {
                     </button>
                 </div>
                 <div className='header-bottom'>
-                    <button className='browse-button'>Browse</button>
+                    {/* <button className='browse-button'>Browse</button> */}
                     <select name="filterOption" id="filter-select" className='dropdown-menu'>
-                        {/* <option value="">All</option> */}
                         <option value="featured">Featured</option>
                         <option value="new">New Releases</option>
                         <option value="on-sale">On Sale</option>

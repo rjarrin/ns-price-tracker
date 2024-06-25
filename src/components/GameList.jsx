@@ -3,7 +3,7 @@ import { getGamesAmerica, getQueriedGamesAmerica } from "nintendo-switch-eshop";
 import GameCard from "./GameCard";
 import '../styles/GameList.css';
 
-const GameList = () => {
+const GameList = ({ searchTerm, filterType }) => {
     const [games, setGames] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const visibleCount = 4;
@@ -11,10 +11,32 @@ const GameList = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const result = await getQueriedGamesAmerica("mario");
-            // Filter the results to only include Switch games
-            const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.title.toLocaleLowerCase().includes("mario"));
-            setGames(switchGames);
+            if (searchTerm !== null) {
+                const result = await getQueriedGamesAmerica(searchTerm);
+                const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.title.toLocaleLowerCase().includes(searchTerm));
+                setGames(switchGames);
+            } else if (filterType) {
+                const result = await getQueriedGamesAmerica();
+                if (filterType === "Featured") {
+                    const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.featured);
+                    console.log("IN FILTER FEATURED")
+                    setGames(switchGames);
+                } else if (filterType === "Latest") {
+                    const cutoffDate = new Date();
+                    cutoffDate.setMonth(cutoffDate.getMonth() - 4);
+                    const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" &&  new Date(game.updatedAt) >= cutoffDate);
+                    console.log("new reelease");
+                    setGames(switchGames);
+                } else if (filterType == "OnSale") {
+                    const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.price && game.price.finalPrice < game.price.regPrice);
+                    console.log("ON SALE IN HERE");
+                    setGames(switchGames);
+                }
+            }
+            // const result = await getQueriedGamesAmerica(searchTerm);
+            // // Filter the results to only include Switch games
+            // const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.title.toLocaleLowerCase().includes(searchTerm));
+            // setGames(switchGames);
         };
         fetchGames();
     }, []);
@@ -50,7 +72,7 @@ const GameList = () => {
                     ))}
                 </div>
             </div>
-            <button className="nav-button right" onClick={handleNextClick} disabled={currentIndex >= games.length - visibleCount * 2}>&gt;</button>
+            <button className="nav-button right" onClick={handleNextClick} disabled={currentIndex >= games.length - visibleCount * 1}>&gt;</button>
         </div>
     );
 };
