@@ -1,12 +1,12 @@
 import { useEffect, useReducer, useRef, useState } from "react";
-import { getGamesAmerica, getQueriedGamesAmerica } from "nintendo-switch-eshop";
+import { getQueriedGamesAmerica } from "nintendo-switch-eshop";
 import GameCard from "./GameCard";
 import '../styles/GameList.css';
 
 const GameList = ({ searchTerm, filterType }) => {
     const [games, setGames] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const visibleCount = 4;
+    const visibleCount = 2;
     const gameListRef = useRef(null);
 
     useEffect(() => {
@@ -33,10 +33,6 @@ const GameList = ({ searchTerm, filterType }) => {
                     setGames(switchGames);
                 }
             }
-            // const result = await getQueriedGamesAmerica(searchTerm);
-            // // Filter the results to only include Switch games
-            // const switchGames = result.filter(game => game.platformCode === "NINTENDO_SWITCH" && game.title.toLocaleLowerCase().includes(searchTerm));
-            // setGames(switchGames);
         };
         fetchGames();
     }, []);

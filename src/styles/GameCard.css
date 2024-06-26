@@ -1,7 +1,7 @@
 .game-card {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    min-width: 200px;
     max-width: 250px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -49,7 +49,7 @@
 }
 
 /* Media query for responsiveness */
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .game-card {
         font-size: 14px;
     }
@@ -59,4 +59,4 @@
     .game-card {
         font-size: 12px;
     }
-}
+} */
