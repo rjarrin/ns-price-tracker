@@ -58,7 +58,7 @@ const Header = ({ toggleTheme }) => {
                     </div>
                 </div>
             </header>
-            {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} />}
+            {isModalOpen && <Modal isOpen={isModalOpen} onClose={closeModal} cartItems={cart}/>}
         </>
     );
 };

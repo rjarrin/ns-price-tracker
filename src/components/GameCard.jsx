@@ -8,7 +8,7 @@ const GameCard = ({ game, gameImage }) => {
 
     const handleClick = () => {
         //console.log(`${game.title} selected`);
-        addToCart(game);
+        addToCart({...game, gameImage});
     }
 
     return (
