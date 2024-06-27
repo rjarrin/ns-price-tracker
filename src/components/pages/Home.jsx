@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../Header";
 import GameList from '../GameList';
+import Footer from "../Footer";
 
 const Home = () => {
     const [theme, setTheme] = useState('dark');
@@ -21,13 +22,13 @@ const Home = () => {
             <h1>Mario Games</h1>
             <GameList searchTerm={"mario"} filterType={null} />
             <h1>Featured</h1>
-            {/* <GameList searchTerm={null} filterType={"Featured"} /> */}
+            <GameList searchTerm={null} filterType={"Featured"} />
             <h1>Latest</h1>
-            {/* <GameList searchTerm={null} filterType={"Latest"} /> */}
+            <GameList searchTerm={null} filterType={"Latest"} />
             <h1>On Sale</h1>
-            {/* <GameList searchTerm={null} filterType={"OnSale"} /> */}
+            <GameList searchTerm={null} filterType={"OnSale"} />
             </div>
-            
+            <Footer />
         </div>
     );
 };

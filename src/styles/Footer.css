@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+}
+
+.footer-top img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}

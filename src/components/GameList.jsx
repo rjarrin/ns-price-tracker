@@ -6,8 +6,26 @@ import '../styles/GameList.css';
 const GameList = ({ searchTerm, filterType }) => {
     const [games, setGames] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const visibleCount = 2;
+    // const visibleCount = 4.8;
+    const [visibleCount, setVisibleCount] = useState(5);
     const gameListRef = useRef(null);
+
+    useEffect(() => {
+        const calculateVisibleCount = () => {
+            let count;
+            if (window.innerWidth <= 600) {
+                count = 2.8;
+            } else if (window.innerWidth <= 1900) {
+                count = 4.8;
+            } else {
+                count = 6.8;
+            }
+            setVisibleCount(count);
+        };
+        calculateVisibleCount();
+        window.addEventListener('resize', calculateVisibleCount);
+        return () => window.removeEventListener('resize', calculateVisibleCount);
+    }, []);
 
     useEffect(() => {
         const fetchGames = async () => {
