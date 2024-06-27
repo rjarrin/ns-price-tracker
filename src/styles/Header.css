@@ -124,3 +124,7 @@
 .browse-button {
     margin-left: 10px;
 }
+
+.search-container {
+    display: flex;
+}
