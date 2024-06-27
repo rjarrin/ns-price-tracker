@@ -1,10 +1,14 @@
 import '../styles/GameCard.css';
+import { useCart } from '../context/CartContext';
 
 const GameCard = ({ game, gameImage }) => {
     // OnClick functionality
     // TODO: OnClick, add the item to the cart
+    const {addToCart} = useCart();
+
     const handleClick = () => {
-        console.log(`${game.title} selected`);
+        //console.log(`${game.title} selected`);
+        addToCart(game);
     }
 
     return (

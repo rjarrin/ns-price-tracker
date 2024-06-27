@@ -5,8 +5,12 @@ import searchIcon from '../assets/magnify.svg';
 import '../styles/Header.css';
 import { useState } from 'react';
 import Modal from './Modal';
+import { useCart } from '../context/CartContext';
 
 const Header = ({ toggleTheme }) => {
+    const {cart} = useCart();
+    const itemCount = cart.length;
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const handleMyCartClick = () => {
@@ -43,6 +47,7 @@ const Header = ({ toggleTheme }) => {
                         <button className='my-cart-button' onClick={handleMyCartClick}>
                             <img className='icon-and-text' src={cartIcon} alt="Cart Icon" />
                             My Cart
+                            {itemCount > 0 && <span className='cart-item-count'>{itemCount}</span>}
                         </button>
                         <div className='search-container'>
                             <input type="text" placeholder='Search...' className='search-input' />
