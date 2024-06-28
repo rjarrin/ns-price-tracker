@@ -6,12 +6,25 @@ import '../styles/Header.css';
 import { useState } from 'react';
 import Modal from './Modal';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = ({ toggleTheme }) => {
     const {cart} = useCart();
     const itemCount = cart.length;
-
+    const navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    }
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        navigate(`/search?term=${encodeURIComponent(searchTerm)}`);
+
+    }
     
     const handleMyCartClick = () => {
         setIsModalOpen(true);
@@ -27,7 +40,10 @@ const Header = ({ toggleTheme }) => {
                 <div className='header-container'>
                     <div className='header-top'>
                         <div className='logo-container'>
-                            <img src={tempLogo} alt="Temporary Logo" />
+                            {/* <img src={tempLogo} alt="Temporary Logo" /> */}
+                            <Link to="/">
+                                <img src={tempLogo} alt="Temp Logo" />
+                            </Link>
                         </div>
                         <div className='title-container'>
                             <h1 className='website-title'>Wise Buys</h1>
@@ -49,12 +65,23 @@ const Header = ({ toggleTheme }) => {
                             My Cart
                             {itemCount > 0 && <span className='cart-item-count'>{itemCount}</span>}
                         </button>
-                        <div className='search-container'>
+
+                        <form onSubmit={handleSearchSubmit}>
+                            <div className='search-container'>
+                                <input type="text" placeholder='Search...' className='search-input' value={searchTerm} onChange={handleSearchChange} />
+                                <button type='submit' className='search-button'>
+                                    <img src={searchIcon} alt="Search Icon" />
+                                </button>
+                            </div>
+                        </form>
+                        
+                        
+                        {/* <div className='search-container'>
                             <input type="text" placeholder='Search...' className='search-input' />
                             <button className='search-button'>
                                 <img src={searchIcon} alt="Search Icon" />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </header>

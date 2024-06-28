@@ -4,12 +4,17 @@ import { createBrowserRouter,RouterProvider } from "react-router-dom";
 // import App from "./App";
 import "./styles/index.css";
 import Home from "./components/pages/Home";
+import Search from "./components/pages/Search";
 import { CartProvider } from "./context/CartContext";
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
+  },
+  {
+    path: '/search',
+    element: <Search />,
   },
 ]);
 
