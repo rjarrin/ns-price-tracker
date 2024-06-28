@@ -1,15 +1,24 @@
+import { useCart } from '../context/CartContext';
 import '../styles/Modal.css';
 
 const Modal = ({isOpen, onClose, cartItems}) => {
+
+    const { removeFromCart } = useCart();
     
     if (!isOpen) {
         return null;
     }
 
-    const totalPrice = cartItems.reduce((acc, item) => {
-        const price = item.price?.finalPrice?? 0; // N/A items changed to $0
-        return acc + price;
-    }, 0);
+    const handleRemove = (gameId) => {
+        removeFromCart(gameId);
+    };
+
+    const totalPrice = cartItems.reduce((acc, item) => acc + (item.price?.finalPrice?? 0), 0);
+
+    // const totalPrice = cartItems.reduce((acc, item) => {
+    //     const price = item.price?.finalPrice?? 0; // N/A items changed to $0
+    //     return acc + price;
+    // }, 0);
 
     return (
         <div className='modal-overlay'>
@@ -25,6 +34,7 @@ const Modal = ({isOpen, onClose, cartItems}) => {
                             <div className="cart-item-title">{item.title}</div>
                             <div className="cart-item-price">${item.price?.finalPrice?? 'N/A'}</div>
                         </div>
+                        <button className='remove-button' onClick={() => handleRemove(item.nsuid)}>Remove</button>
                         </div>
                     ))}
                 </div>
