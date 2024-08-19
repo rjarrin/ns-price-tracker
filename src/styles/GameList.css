@@ -1,5 +1,10 @@
-.main h1 {
+h1 {
     margin-left: 5%;
+}
+
+.back-btn {
+    margin-left: 50%;
+    margin-top: 5%;
 }
 
 .game-list-container {

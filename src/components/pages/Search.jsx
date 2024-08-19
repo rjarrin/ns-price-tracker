@@ -16,7 +16,7 @@ const Search = () => {
             <Header />
             <h1>Search results for {decodedSearchTerm}</h1>
             <GameList key={decodedSearchTerm} searchTerm={decodedSearchTerm} filterType={null} />
-            <button onClick={goBack} style={{ marginBottom: '20px' }}>Go Back</button>
+            <button className="back-btn" onClick={goBack}>Go Back</button>
         </div>
     );
 };

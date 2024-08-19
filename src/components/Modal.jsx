@@ -15,11 +15,6 @@ const Modal = ({isOpen, onClose, cartItems}) => {
 
     const totalPrice = cartItems.reduce((acc, item) => acc + (item.price?.finalPrice?? 0), 0);
 
-    // const totalPrice = cartItems.reduce((acc, item) => {
-    //     const price = item.price?.finalPrice?? 0; // N/A items changed to $0
-    //     return acc + price;
-    // }, 0);
-
     return (
         <div className='modal-overlay'>
             <button className='close-modal-btn' onClick={onClose}>×</button>

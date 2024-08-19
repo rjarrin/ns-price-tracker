@@ -72,6 +72,11 @@ body.light-theme {
   color: #213547;
 }
 
+body.light-theme header.app-header .header-container .header-top {
+    background-color: rgb(122, 122, 122);
+    color: black;
+}
+
 body.dark-theme {
   background-color: #242424;
   color: #ffffff;
